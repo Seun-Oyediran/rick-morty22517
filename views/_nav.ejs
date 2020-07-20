@@ -1,0 +1,54 @@
+<style>
+    .header-image {
+        width: 170px;
+    }
+
+    nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    .header-a,
+    .nav {
+        overflow: hidden;
+    }
+
+    .nav-link {
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 1px;
+        /* margin: 0 0.8rem; */
+    }
+
+    .nav-link:hover {
+        color: #FF9900;
+    }
+
+    @media(max-width: 740px) {
+        nav {
+            position: relative;
+        }
+    }
+
+    @media(max-width: 740px) {
+        .nav-link {
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0;
+            /* margin: 0 0.8rem; */
+        }
+    }
+</style>
+<nav>
+    <div class="container">
+        <div class="nav-wrapper nav">
+
+            <a href="/" class="header-a left"> <img class="header-image" src="./img/pngegg (2).png"
+                    alt="Header Logo"></a>
+            <a href="/characters" class="right nav-link-chars nav-link">Characters</a>
+            <a href="/" class="right nav-link nav-link-home">Home</a>
+        </div>
+    </div>
+
+</nav>

@@ -1,0 +1,90 @@
+<style>
+    body {
+        background-image: url('./img/rick_and_morty_attacking_4k_hd-2560x1440.jpg');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        position: relative;
+    }
+
+    h6>span {
+        font-size: 16px;
+    }
+
+    form,
+    .btn-rows {
+        position: relative;
+        z-index: 2;
+    }
+</style>
+<%-include ('./_nav.ejs')%>
+<style>
+    .nav-link {
+        display: none;
+    }
+</style>
+<section>
+    <div class="cover"></div>
+    <div class="containing">
+        <form action="/characters" method="POST">
+            <div class="row row-flex">
+                <input type="number" name="page" class="browser-default white-text center-align" value="<%= pagenos%>">
+                <span>/ 30</span>
+                <button class="btn waves-effect">Jump</button>
+            </div>
+        </form>
+
+    </div>
+</section>
+<section>
+    <div class="contain containing grid">
+        <%for (let i = 0; i < data.length; i++) {%>
+        <div class="bigBox ">
+            <div class="boxCon ">
+                <div class="card-front">
+                    <div class="imgCon">
+                        <img src="<%= data[i].image %>" alt="rick">
+                    </div>
+                    <h6>
+                        <div class="statusColor"><span><%=data[i].status%></span></div>
+                        <span><%= data[i].name %></span>
+                    </h6>
+                </div>
+                <div class="card-back">
+                    <h6><span><%= data[i].name %></span></h6>
+                    <p>
+                        Status: <br />
+                        <span class="status"><%=data[i].status%></span>
+                    </p>
+                    <p>
+                        Species: <br />
+                        <span class="species"><%= data[i].species %></span>
+                    </p>
+                    <p>
+                        Location: <br />
+                        <span class="location"><%= data[i].location.name %></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <%}%>
+
+                </div>
+
+                <div class="containing">
+
+                    <div class="section">
+                        <div class="row btn-rows">
+                            <%if(pagenos > 1){%>
+        <a href="/characters?page=<%= pagenos-1%>" class="btn orange darken-2 ">Prev</a>
+        <%}%>
+        <%if(pagenos < 30){%>
+        <a href="/characters?page=<%= pagenos+1%>" class="btn orange darken-2 ">Next</a>
+        <%}%>
+            </div>
+        </div>
+    </div>
+    
+</section>
+<%-include ('./_footer.ejs')%>

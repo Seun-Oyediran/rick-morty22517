@@ -1,0 +1,134 @@
+<style>
+    .card-image>image {
+        width: 100%;
+    }
+
+    .characters {
+        position: relative;
+        z-index: 1;
+        color: white;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        background-color: #3c3e44;
+        border-radius: 12px;
+        box-shadow: 2px 2px 1px 1px #333333;
+        margin: 3rem 0;
+        padding: 0.3rem;
+        justify-items: center;
+    }
+
+    .char-content {
+        background-color: #3c3e44;
+        color: white;
+        align-self: center;
+        margin-left: 1rem;
+        justify-items: center;
+        padding-right: 1.5rem;
+    }
+
+    /* .char-content-1 {
+        order: 1;
+    }
+
+    .imgCon-1 {
+        order: 2;
+    } */
+
+    .imgCon {
+        max-width: 250px;
+        max-height: 250px;
+        justify-content: center;
+        justify-items: center;
+    }
+
+
+
+    .char-content>a {
+        position: absolute;
+        display: inline-block;
+        left: 50%;
+        bottom: 10px;
+        transform: translateX(-50%);
+        font-size: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #FF9900;
+    }
+
+    .char-content>a:hover {
+        color: white;
+    }
+
+    @media(max-width:700px) {
+        .characters {
+            display: block;
+            padding: 1rem;
+        }
+
+        .imgCon {
+            max-width: 528px;
+            max-height: 528px;
+        }
+
+        .char-content {
+            padding-right: unset;
+        }
+
+        .char-content>a {
+            position: static;
+            transform: translateX(0);
+            width: 100%;
+            text-align: center;
+        }
+    }
+</style>
+<main>
+    <div class="cover"></div>
+    <%-include ('./_nav.ejs')%>
+    <style>
+        .nav-link-home {
+            display: none;
+        }
+    </style>
+    <div class="container">
+        <div class="characters">
+            <div class="imgCon">
+                <img src="./img/pngegg (1).png" alt="character">
+            </div>
+            <div class="char-content char-content-1">
+                <p>This is a web app that displays information about all the characters of Rick and Morty. There are
+                    <strong>591</strong> characters available
+                <p>“Put a saddle on your universe. Let it kick itself out.”
+                    — Rick Sanchez</p>
+                </p>
+                <a href="/characters">See All Characters</a>
+            </div>
+        </div>
+        <div class="characters">
+            <div class="imgCon imgCon-1">
+                <img src="./img/pngegg.png" alt="character">
+            </div>
+            <div class="char-content">
+                <p>
+                <p>Information about each episode and location coming soon</p>“They named a holiday after me.
+                Ricksgiving. They teach kids about me in school!”
+                — Rick Sanchez
+
+                </p>
+                <a href="#">Coming Soon</a>
+            </div>
+        </div>
+        <!-- <div class="characters">
+            <div class="imgCon">
+                <img src="./img/pngegg (5).png" alt="character">
+            </div>
+            <div class="char-content char-content-1">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem animi itaque praesentium non nostrum
+                    voluptatum eius voluptatem facere officia neque quia officiis error, doloremque fugit. Magnam
+                    perferendis suscipit nobis nihil!</p>
+                <a href="#">See All Characters</a>
+            </div>
+        </div> -->
+    </div>
+    <%-include ('./_footer.ejs')%>
+</main>

@@ -1,0 +1,214 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: #202329;
+}
+.containing{
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 1rem 0;
+}
+.contain{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 4rem;
+}
+.bigBox{
+    height: 323px;
+    
+    width: 274px;
+    perspective: 1000px;
+    background-color: transparent;
+}
+.bigBox:last-of-type{
+    grid-column: 3/4;
+}
+.boxCon{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    transform-style: preserve-3d;
+    transition: all 0.8s ease;
+    background-color: transparent;
+}
+.card-front, .card-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    /* background-color: blue; */
+    background-color: #3c3e44;
+    border-radius: 6px;
+    overflow: hidden;
+    z-index: 2;
+}
+.card-front{
+    display: flex;
+    flex-direction: column;
+}
+.card-front > h6{
+    color: white;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.statusColor{
+    /* position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%); */
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: white;
+    align-self: flex-end;
+    margin: 0 5px;
+    margin-bottom: 2px;
+}
+.statusColor > span{
+    display: none;
+}
+img{
+    
+    width: 100%;
+    object-fit: cover;
+    animation: image 1s ease forwards;
+    opacity: 0;
+    display: block;
+}
+.card-back{
+    transform: rotateY(180deg);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: flex-start;
+    padding: 0.5rem 1rem;
+    justify-content: space-around;
+}
+.bigBox:hover > .boxCon{
+    transform: rotateY(180deg);
+}
+.card-back > h6{
+    letter-spacing: 1px;
+    text-align: center;
+    font-weight: 700;
+    /* color: #FF9900; */
+}
+.card-back > p{
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
+}
+.card-back > p > span{
+    color: white;
+    font-weight: 600;
+    font-size: 17px;
+    letter-spacing: 1px;
+}
+.card-back > p > span:last-of-type{
+    letter-spacing: unset;
+}
+.btn-rows{
+    display: flex;
+    justify-content: center;
+    
+}
+.btn-rows > a{
+    margin: 0 2rem;
+}
+form, .row-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form  input{
+    border: 1px solid black;
+    align-self: flex-end;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 0.3rem 0;
+    width: 5rem;
+    border-radius: 8px;
+    outline: none;
+}
+
+form span{
+    font-size: 17px;
+    color: white;
+    align-self: flex-end;
+}
+/* .row-flex{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+} */
+.row-flex button, .row-flex span{
+    margin: 0 5px;
+}
+
+main{
+    min-height: 100vh;
+    width: 100%;
+    background-image: url('./img/rick_and_morty_attacking_4k_hd-2560x1440.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    background-attachment: fixed;
+}
+nav{
+    position: relative;
+    z-index: 1;
+    background-color: #202329;
+}
+.cover{
+    position: absolute;
+    background-color: #202329;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.96;
+}
+
+
+
+
+
+
+@keyframes image{
+    100%{opacity: 1;}
+}
+
+@media(max-width:1200px){
+    .containing{
+        width: 85%;
+        margin: auto;
+        /* overflow: hidden; */
+        padding: 1rem 0;
+    }
+    .contain{
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+    }
+    .bigBox:last-of-type{
+        grid-column: unset;
+    }
+}
+
+
+@media(max-width:760px){
+    .containing{
+        width: 90%;
+        margin: auto;
+        /* overflow: hidden; */
+        padding: 1rem 0;
+    }
+    .contain{
+        grid-template-columns:1fr;
+       
+    }
+}
