@@ -29,24 +29,26 @@ router.get('/characters', async (req, res) => {
 
 router.post('/characters', async (req, res) => {
     let page = +req.body.page
+    let pagenos = page
     if (page < 1) {
         let title = 'Error'
-        res.render('error', { title })
+        res.render('notfound', { title, pagenos })
     } else if (page > 30) {
         let title = 'Error'
-        res.render('error', { title })
+        res.render('notfound', { title, pagenos })
     } else {
         res.redirect(`/characters?page=${page}`)
     }
 })
 
 
-router.get('/error', (req, res) => {
-    let title = 'Error'
-    res.render('error', { title })
-})
 
 
+// router.get('/not', (req, res) => {
+//     let title = 'Error'
+//     let pagenos = 5
+//     res.render('notfound', { pagenos, title })
+// })
 
 
 module.exports = router

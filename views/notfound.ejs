@@ -1,0 +1,89 @@
+<style>
+    /* body {
+        background-image: url('./img/rick_and_morty_attacking_4k_hd-2560x1440.jpg');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        position: relative;
+    } */
+
+
+    section {
+        height: 100vh;
+        background-image: url('./img/rick_and_morty_attacking_4k_hd-2560x1440.jpg');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        position: relative;
+    }
+
+    h6>span {
+        font-size: 16px;
+    }
+
+    form,
+    .btn-rows {
+        position: relative;
+        z-index: 2;
+    }
+
+    .nav-link {
+        display: none;
+    }
+
+    .containing {
+        display: flex;
+        flex-direction: column;
+        height: 55%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    .error-message {
+        position: relative;
+        color: white;
+        z-index: 2;
+        text-align: center;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .error-message>h1 {
+        font-size: 7rem;
+        letter-spacing: 2px;
+    }
+
+    .error-message>p {
+        font-size: 1.9rem;
+    }
+
+    @media(max-width: 400px) {
+        .error-message>p {
+            font-size: 1.5rem;
+        }
+    }
+</style>
+
+<%-include ('./_nav.ejs')%>
+<div class="cover"></div>
+<section>
+    <div class="cover"></div>
+    <div class="containing">
+        <form action="/characters" method="POST">
+            <div class="row row-flex">
+                <input type="number" name="page" class="browser-default white-text center-align" value="<%= pagenos%>">
+                <span>/ 30</span>
+                <button class="btn waves-effect">Jump</button>
+            </div>
+        </form>
+        <div class="error-message">
+            <h1>Error</h1>
+            <p>Input must be between 1 & 30</p>
+        </div>
+
+    </div>
+</section>
+<%-include ('./_footer.ejs')%>
