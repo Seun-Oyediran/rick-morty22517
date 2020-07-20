@@ -30,9 +30,11 @@ router.get('/characters', async (req, res) => {
 router.post('/characters', async (req, res) => {
     let page = +req.body.page
     if (page < 1) {
-        res.render('error')
+        let title = 'Error'
+        res.render('error', { title })
     } else if (page > 30) {
-        res.render('error')
+        let title = 'Error'
+        res.render('error', { title })
     } else {
         res.redirect(`/characters?page=${page}`)
     }
@@ -40,7 +42,8 @@ router.post('/characters', async (req, res) => {
 
 
 router.get('/error', (req, res) => {
-    res.render('error')
+    let title = 'Error'
+    res.render('error', { title })
 })
 
 
