@@ -17,6 +17,45 @@
         position: relative;
         z-index: 2;
     }
+
+    .error-cover {
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 20;
+        /* background-color: lightblue; */
+        background-color: rgba(0, 0, 0, 0.9);
+        /* opacity: 0.3; */
+        display: none;
+        justify-content: center;
+        align-items: center;
+
+        opacity: 0;
+
+    }
+
+    .box {
+        padding: 1rem;
+        z-index: 30;
+        position: relative;
+        background-color: #3c3e44;
+        color: rgba(255, 255, 255, 0.9);
+        text-align: center;
+        box-shadow: 0px 5px 14px rgba(0, 0, 0, 0.3), 0px 5px 10px rgba(0, 0, 0, 0.3);
+        border-radius: 6px;
+        transform: translateY(150px);
+    }
+
+    .box>h4 {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+    }
 </style>
 <%-include ('./_nav.ejs')%>
 <style>
@@ -29,9 +68,10 @@
     <div class="containing">
         <form action="/characters" method="POST">
             <div class="row row-flex">
-                <input type="number" name="page" class="browser-default white-text center-align" value="<%= pagenos%>">
+                <input type="number" name="page" class="browser-default white-text center-align input"
+                    value="<%= pagenos%>">
                 <span>/ 30</span>
-                <button class="btn waves-effect">Jump</button>
+                <button class="btn waves-effect trigger">Jump</button>
             </div>
         </form>
 
@@ -87,4 +127,16 @@
     </div>
     
 </section>
+<article class="error-cover">
+    <div class="box">
+        <h3>Error</h3>
+        <p>Input must be between 1 & 30</p>
+        <h4 class="close">&times;</h4>
+    </div>
+    
+</article>
 <%-include ('./_footer.ejs')%>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"
+            integrity="sha512-pCPP9sfLW9T7EZiw725jUl+ux032sjGhFE+ZAx00C1iO55ZmZJWpfNGbDf2ZF5b0UqxRqSW548PbZEWmH+S7pA=="
+            crossorigin="anonymous"></script>
+        <script src="/chars.js"></script>
